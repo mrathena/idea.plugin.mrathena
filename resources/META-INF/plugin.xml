@@ -1,0 +1,53 @@
+<idea-plugin>
+  <id>com.mrathena.idea.plugin.mrathena</id>
+  <name>Mrathena</name>
+  <version>1.0</version>
+  <vendor email="support@mrathena.com" url="http://www.mrathena.com">Mrathena Tech</vendor>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+	   on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <component>
+      <implementation-class>com.mrathena.component.MrathenaApplicationComponent</implementation-class>
+    </component>
+  </application-components>
+
+  <actions>
+    <group text="Mrathena">
+      <add-to-group group-id="MainMenu" anchor="last"/>
+      <action id="group.mrathena.action.maven.project.version.helper"
+              class="com.mrathena.action.maven.project.version.helper.Action"
+              text="Modify Maven Project Version"
+              description="Easier for modify maven project version"
+              icon="/icon/header.jpg"/>
+      <separator/>
+      <action id="action.test" class="com.mrathena.action.TestAction"
+              text="Action Test" description="This s test action" icon="/icon/header.jpg">
+        <add-to-group group-id="MainMenu" anchor="last"/>
+      </action>
+    </group>
+    <group>
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+      <separator/>
+      <action id="action.maven.project.version.helper"
+              class="com.mrathena.action.maven.project.version.helper.Action"
+              text="Modify Maven Project Version"
+              description="Easier for modify maven project version"
+              icon="/icon/header.jpg">
+      </action>
+      <separator/>
+    </group>
+  </actions>
+
+</idea-plugin>
